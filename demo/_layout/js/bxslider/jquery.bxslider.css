@@ -1,0 +1,244 @@
+/**
+ * Name: bxslider.css
+ *	
+ *	T.O.C
+ *
+ *	=Basics
+ *	=Slider theme
+ *	=Loader
+ *	=Pager
+ *	=Directional Controls (Next / Prev)
+ *	=Auto Controls (Start / Stop)
+ *	=Pager with auto controls hibrid layout	
+ *	=Image Captions
+ *
+ */
+
+ 
+ /* ==========================================================================
+   =Basics
+   ========================================================================== */
+
+	.bx-wrapper {
+		position: relative;
+		padding: 0;
+		margin: 0 auto 60px auto;
+	}
+	
+	.bx-wrapper ul { list-style: none; }
+	
+	.bx-wrapper img {
+		display: block;
+		max-width: 100%;
+	}
+	
+	.testimonial-slider .bx-wrapper img { max-width: inherit; }
+	
+	.blog-post-slider .bx-wrapper { margin-bottom: 0; }
+	
+	.images-slider { margin-bottom: 50px; }
+
+/* ==========================================================================
+   =Slider theme
+   ========================================================================== */
+
+	.bx-wrapper .bx-viewport {
+		/*fix other elements on the page moving (on Chrome)*/
+		-webkit-transform: translatez(0);
+		   -moz-transform: translatez(0);
+		    -ms-transform: translatez(0);
+			 -o-transform: translatez(0);
+			    transform: translatez(0);
+	}
+	
+	.icon-box-slider .bx-wrapper .bx-viewport { padding: 10px 0 0 10px; }
+	
+	.bx-wrapper .bx-pager,
+	.bx-wrapper .bx-controls-auto {
+		position: absolute;
+		bottom: -10px;
+		width: 100%;
+	}
+	
+	.clients-slider .bx-wrapper .bx-pager,
+	.clients-slider .bx-wrapper .bx-controls-auto { bottom: -50px; }
+
+/* ==========================================================================
+   =Loader
+   ========================================================================== */
+
+	.bx-wrapper .bx-loading {
+		position: absolute;
+		z-index: 10000;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 50px;
+		height: 100%;
+		background: #fff url(images/bx_loader.gif) no-repeat center center;
+	}
+
+/* ==========================================================================
+   =Pager
+   ========================================================================== */
+
+	.bx-wrapper .bx-pager {
+		padding-top: 20px;
+		color: #111;
+		text-align: center;
+	}
+	
+	.bx-wrapper .bx-pager .bx-pager-item,
+	.bx-wrapper .bx-controls-auto .bx-controls-auto-item { display: inline-block; }
+	
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		outline: 0;
+		margin: 0 5px;
+		background: #4fb7ff;
+		text-indent: -9999px;	
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager a:hover,
+	.bx-wrapper .bx-pager.bx-default-pager a.active { background: #313947; }
+	
+	.fullwidth-section .bx-wrapper .bx-pager.bx-default-pager a:hover,
+	.fullwidth-section .bx-wrapper .bx-pager.bx-default-pager a.active { background: #fff; }
+
+/* ==========================================================================
+   =Directional Controls (Next / Prev)
+   ========================================================================== */
+
+	.bx-wrapper .bx-prev {
+		left: -80px;
+		background: url(../../images/left-2.png) no-repeat center center;
+	}
+	
+	.bx-wrapper .bx-next {
+		right: -80px;
+		background: url(../../images/right-2.png) no-repeat center center;
+	}
+	
+	.images-slider .bx-wrapper .bx-prev { left: 0; }
+	.images-slider .bx-wrapper .bx-next { right: 0; }
+	
+	/**
+	 * 1. changing the z-index from the original 9999 to 
+	 */
+	
+	.bx-wrapper .bx-controls-direction a {
+		position: absolute;
+		z-index: 1000; /* 1 */
+		top: 50%;
+		display: none;
+		width: 40px;
+		height: 40px;
+		border-radius: 2px;
+		background-color: #4fb7ff;
+		outline: 0;
+		margin-top: -20px;
+		text-indent: -9999px;
+		-webkit-transition: all 0.3s;
+				transition: all 0.3s;
+	}
+	
+	.images-slider .bx-wrapper .bx-controls-direction a { display: block; }
+	
+	.bx-wrapper .bx-controls-direction a:hover { background-color: #313947; }
+	
+	.bx-wrapper .bx-controls-direction a.disabled { display: none; }
+	
+	.icon-box-slider .bx-wrapper .bx-controls-direction a { margin-top: -30px; }
+
+/* ==========================================================================
+   =Auto Controls (Start / Stop)
+   ========================================================================== */
+
+	.bx-wrapper .bx-controls-auto { text-align: center; }
+	
+	.bx-wrapper .bx-controls-auto .bx-start {
+		display: block;
+		width: 10px;
+		height: 11px;
+		outline: 0;
+		margin: 0 3px;
+		background: url(images/controls.png) -86px -11px no-repeat;
+		text-indent: -9999px;
+	}
+	
+	.bx-wrapper .bx-controls-auto .bx-start:hover,
+	.bx-wrapper .bx-controls-auto .bx-start.active { background-position: -86px 0; }
+	
+	.bx-wrapper .bx-controls-auto .bx-stop {
+		display: block;
+		width: 9px;
+		height: 11px;
+		outline: 0;
+		margin: 0 3px;
+		background: url(images/controls.png) -86px -44px no-repeat;
+		text-indent: -9999px;
+	}
+	
+	.bx-wrapper .bx-controls-auto .bx-stop:hover,
+	.bx-wrapper .bx-controls-auto .bx-stop.active { background-position: -86px -33px; }
+
+/* ==========================================================================
+   =Pager with auto controls hibrid layout
+   ========================================================================== */
+
+	.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+		width: 80%;
+		text-align: left;	
+	}
+	
+	.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+		right: 0;
+		width: 35px;
+	}
+
+/* ==========================================================================
+   =Image Captions
+   ========================================================================== */
+
+	.bx-wrapper .bx-caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: rgba(80, 80, 80, 0.75);
+	}
+	
+	.bx-wrapper .bx-caption span {
+		display: block;
+		padding: 10px;
+		color: #fff;
+	}
+
+
+	@media (min-width: 1200px) {
+		
+		.bx-wrapper .bx-controls-direction a { display: block; }
+		
+		.bx-wrapper .bx-pager,
+		.bx-wrapper .bx-controls-auto { display: none; }
+		
+	}
+	
+	@media (min-width: 1400px) {
+		
+		.bx-wrapper .bx-prev { left: -100px; }
+		.bx-wrapper .bx-next { right: -100px; }
+		
+	}
+	
+	@media (max-width: 767px) {
+	
+		.icon-box-slider .bx-wrapper .bx-viewport { max-height: 180px; }
+		
+		.icon-box-slider .bx-wrapper .bx-pager,
+		.icon-box-slider .bx-wrapper .bx-controls-auto { bottom: -30px; }
+		
+	}

@@ -1,0 +1,167 @@
+/**
+ * Name: custom.css
+ *
+ *	T.O.C
+ *
+ *	=Basics
+ *	=Rev Slider Pager
+ *	=Rev Slider Nav 
+ *	=Rev Slider Typography 
+ *
+ */
+ 
+ 
+/* ==========================================================================
+   =Basics
+   ========================================================================== */
+   
+	.fullwidthbanner-container {
+		position: relative;
+		width: 100% !important;
+		max-height: 650px !important;
+		overflow: hidden;
+		padding: 0;
+		margin-bottom: 50px; 
+	}
+
+	.fullwidthbanner-container ul { list-style: none; }
+
+	.fullwidthbanner-container .fullwidthbanner {
+		position: relative;
+		width: 100% !important;
+		/*max-height: 650px !important;*/
+		max-height: 340px !important;
+	}
+
+/* ==========================================================================
+   =Rev Slider Pager
+   ========================================================================== */
+
+   /**
+ 	 * 1. changing the z-index from 1000 so that the bullets don't go over the sticky menu
+ 	 */
+   
+	.tp-bullets { 
+		z-index: 100; /* 1 */
+	}
+	   
+	.tp-bullets.simplebullets.round .bullet {
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		margin: 0 3px;
+		background: #4fb7ff;
+	}
+
+	.tp-bullets.simplebullets.round .bullet.selected { background: #313947;  }
+
+/* ==========================================================================
+   =Rev Slider Nav
+   ========================================================================== */
+
+	.tp-leftarrow.default,
+	.tp-rightarrow.default {
+		width: 60px;
+		height: 60px;
+		opacity: 0.7;
+	}
+
+	.tp-leftarrow.default:hover,
+	.tp-rightarrow.default:hover { opacity: 1; }
+
+	.tp-leftarrow.default { background: #313947 url(../../../images/left.png) no-repeat center center; }
+	.tp-rightarrow.default { background: #313947 url(../../../images/right.png) no-repeat center center; }
+	
+/* ==========================================================================
+   =Rev Slider Typography
+   ========================================================================== */
+   
+   	.caption { font-family: 'Open Sans', Arial, sans-serif; }
+	
+	.caption.title {
+		color: #fff;
+		font-size: 72px;
+		line-height: 85px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	
+	.caption.title-bg {
+		padding: 25px;
+		background-color: #313947;
+		color: #fff;
+		font-size: 48px;
+		line-height: 48px;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+	
+	.caption.title-2 {
+		color: #fff;
+		font-size: 48px;
+		line-height: 56px;
+		font-weight: 800;
+		text-transform: uppercase
+	}
+	
+	.caption.title-2:after {
+		display: block;
+		width: 120px;
+		border-top: 2px solid #4fb7ff;
+		margin: 30px 0;
+		content: "";
+	}
+	
+	.caption.subtitle {
+		padding-left: 20px;
+		border-left: 3px solid #fff;
+		color: #fff;
+		font-size: 24px;
+		line-height: 33px;
+		text-transform: uppercase;
+	}
+	
+	.caption.subtitle.alt {
+		padding-left: 0;
+		border: none;
+	}
+   	
+	.caption.text {
+		color: #fff;
+		font: 18px/27px 'PT Sans', Arial, sans-serif;
+	}
+	
+	.caption .btn,
+	.caption .btn:hover { color: #fff; }
+	
+
+	@media (min-width: 768px) and (max-width: 979px) {
+		
+		.tp-leftarrow.default,
+		.tp-rightarrow.default { display: none; }
+		
+		.caption .btn { 
+			padding: 10px 15px; 
+			font-size: 14px;
+		}
+		
+		.caption.title-2:after { margin-top: 10px; }
+		
+	}
+
+	@media (max-width: 767px) {
+		
+		.tp-leftarrow.default,
+		.tp-rightarrow.default { display: none; }
+		
+		.tp-bullets { bottom: 20px !important; }
+		
+		.caption .btn { 
+			padding: 3px 5px; 
+			font-size: 7px;
+			line-height: 9px;
+		}
+		
+		.caption.title-2:after { display: none; }
+		
+	}

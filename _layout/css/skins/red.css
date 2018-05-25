@@ -1,0 +1,1666 @@
+/**
+ * Name: red.css
+ *
+ * -
+ *
+ * The red color scheme for the template
+ *
+ */
+ 
+ /* ==========================================================================
+   =Typography
+   ========================================================================== */
+	 
+	body {
+		background-color: #fff;
+		color: #6d6d6d;
+	}
+
+	h1, 
+	h2, 
+	h3, 
+	h4, 
+	h5, 
+	h6 {
+		color: #313947;
+	}
+		
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a { 
+		color: #6d6d6d; 
+	}
+	
+	abbr[title] {  
+		border-bottom: 1px dotted #999; 
+	}
+	
+	blockquote span { 
+		color: #999999;  
+	}
+
+	hr { 
+		border: solid #e0e0e0; 
+	}
+	
+	code { 
+		border: 1px solid #e0e0e0;
+		background-color: #f3f3f3;  
+		color: #d50f25;  
+	}
+	
+	pre { 
+		border: 1px solid #e0e0e0;   
+		background-color: #f3f3f3; 
+	}
+	
+	.hr { 
+		border-top: 1px solid #e0e0e0;  
+	}
+	
+	.text-highlight { color: #ff3500; }
+	
+	.mute{ color: #999; }
+	
+	@media (max-width: 767px) {
+	 
+		body { 
+			background-color: #fff; 
+		}
+
+	}
+
+/* ==========================================================================
+   =Typography - Links
+   ========================================================================== */
+	
+	a, 
+	a:visited { 
+		color: #ff3500;  
+	}
+	
+	a:active {
+ 		background: transparent;
+	}	
+
+/* ==========================================================================
+   =Typography - Tables
+   ========================================================================== */
+
+	table { 
+		background-color: transparent; 
+	}
+
+	table th, 
+	table td {
+		border-top: 1px solid #b4bfc3;
+	}
+	
+	table th { 
+		background-color: #ff3500;
+	}
+	
+/* ==========================================================================
+   =Typography - Forms
+   ========================================================================== */
+
+	label span { color: #d50f25; }
+	
+	/*
+	 * 1. stop safari from overwriting input styles
+	 */	
+	
+	input,
+	textarea,
+	select {
+		border: 1px solid #e0e0e0;
+		background: #fff;
+		color: #444;	
+	}
+	
+	input[type="text"]:focus,
+	input[type="email"]:focus,
+	input[type="url"]:focus,
+	textarea:focus {
+		border-color: #bbb;	
+	}
+	
+	select:focus {
+	  outline: thin dotted #bbb;
+	}
+	
+	input:-moz-placeholder,
+	textarea:-moz-placeholder {
+		color: #999;
+	}
+	
+	input:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		color: #999;
+	}
+	
+	input::-webkit-input-placeholder,
+	textarea::-webkit-input-placeholder {
+		color: #999;
+	}
+
+/* ==========================================================================
+   =Misc
+   ========================================================================== */
+   
+	.javascript-required,
+	.modern-browser-required{
+		background-color: #d50f25;
+		color: #fff;
+	}
+
+/* ==========================================================================
+   =Accordions and Toogles
+   ========================================================================== */
+
+/* =Accordion
+   ========================================================================== */
+
+	.accordion-item {
+		border: 1px solid #e0e0e0;	
+	}
+	
+	a.accordion-item { color: #6d6d6d; }
+	
+	.accordion-item:after { 
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.accordion-item:hover,
+	.accordion-item.active {
+		border-color: #9d2000;
+		background-color: #9d2000;
+		color: #fff;
+	}
+	
+/* =Toogle
+   ========================================================================== */
+
+	.toggle-item {
+		border: 1px solid #e0e0e0;	
+	}
+	
+	a.toggle-item { color: #6d6d6d; }
+	
+	.toggle-item:after {  
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.toggle-item:hover,
+	.toggle-item.active {
+		border-color: #9d2000;
+		background-color: #9d2000;
+		color: #fff;
+	}
+
+/* ==========================================================================
+   =Alerts
+   ========================================================================== */
+
+	.alert {
+		border: 1px solid #cdcdcd;
+	}
+	
+	.alert.info {
+		background-color: #94cee4;
+		color: #fff;
+	}
+	
+	.alert.success {
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.alert.error {
+		background-color: #ff0030;
+		color: #fff;
+	}
+	
+	.alert.warning {
+		background-color: #ff7992;
+		color: #fff;
+	}
+   
+/* ==========================================================================
+   =Buttons
+   ========================================================================== */
+
+/* =Default Button
+   ========================================================================== */
+   
+	.btn { 
+		border-bottom: 1px solid #9d2000;
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	a.btn { color: #fff; }
+	
+	.btn:hover { 
+		border-bottom-color: #20252f;
+		background-color: #313947;
+	}
+
+/* =Colored Buttons
+   ========================================================================== */
+	
+	.btn-white {
+		border: 1px solid #ff3500;
+		background-color: transparent;
+		color: #ff3500;
+	}
+	
+	a.btn-white { color: #ff3500; }
+	
+	.btn-white:hover { 
+		border-color: #ff3500;
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.btn-white.alt { border-color: #6d6d6d; }
+	a.btn-white.alt { color: #6d6d6d; }
+	
+	.btn-white.alt:hover {
+		border-color: #ff3500;
+		color: #fff; 
+	}
+	
+	.btn-black {
+		border: 1px solid #313947;
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	a.btn-black { color: #fff; }
+	
+	.btn-black:hover { 
+		border-color: #ff3500;
+		background-color: #ff3500;
+		color: #fff;
+	}
+
+/* ==========================================================================
+   =Client logos
+   ========================================================================== */
+   
+   	.client-logos { 
+		border: 1px solid #e0e0e0;
+	}
+	
+	.client-logos:hover { background-color: #f9f9f9; }
+	
+/* ==========================================================================
+   =Custom Lists
+   ========================================================================== */
+	
+	ul.check li:before,
+	ul.square-check li:before { 
+		color: #ff3500;
+	}
+	
+	ul.fill-circle li:before {
+		background-color: #ff3500;
+	}
+	
+	ul.square li:before {
+		background-color: #ff3500;
+	}
+	
+	ul.diamond li:before {
+		background-color: #ff3500;
+	}
+	
+
+/* ==========================================================================
+   =Dividers
+   ========================================================================== */
+	
+	.divider.single-line { border-top: 1px solid #e0e0e0; }
+	
+	.divider.double-line { border-top: 4px double #e0e0e0; }
+	
+	.divider.single-dotted {
+		 background: url(../../images/bg-single-dotted.gif) repeat-x top left ;  
+	}
+	
+	.divider.double-dotted { 
+		background: url(../../images/bg-double-dotted.gif) repeat-x top left; 
+	}	
+
+/* ==========================================================================
+   =Headlines
+   ========================================================================== */
+	
+	.headline h2:after,
+	.headline h3:after {
+		border-top: 2px solid #ff3500;
+	}
+	
+	.headline-2 h1:after {
+		border-top: 2px solid #ff3500;
+	}
+	
+	.headline-2 h2:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.headline-2 h3:after,
+	.headline-2 h4:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	
+/* ==========================================================================
+   =Icon Boxes
+   ========================================================================== */
+
+/* =Icon Box 1
+   ========================================================================== */
+		
+	.icon-box-1 > span {
+		background-color: #9d2000;
+		color: #fff; 
+	} 
+	
+	.icon-box-1:hover > span {
+		background-color: #ff3500;
+	}
+
+/* =Icon Box 2
+   ========================================================================== */
+		
+	.icon-box-2 > span { 
+		border: 1px solid #e0e0e0;
+	}
+	
+	.icon-box-2:hover > span {
+		background-color: #ff3500;
+		color: #fff;
+	}
+
+/* =Icon Box 3
+   ========================================================================== */
+	
+	.icon-box-3 > span {
+		border: 1px solid #e0e0e0;			
+		background-color: #fff;	
+	}
+	 
+	.icon-box-3 .icon-box-content { 
+		border: 1px solid #e0e0e0; 
+	}
+	
+	.icon-box-3:hover > span {
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+/* ==========================================================================
+   =Milestones
+   ========================================================================== */
+	
+	.milestone .milestone-content {
+		color: #313947;
+	}
+	
+	.milestone .milestone-description p:before {
+		border-top: 2px solid #ff3500;
+	}
+	
+
+/* ==========================================================================
+   =Our Process
+   ========================================================================== */
+
+/* =Horizontal process
+   ========================================================================== */
+	
+	.horizontal-process-builder:before {
+		border-top: 1px solid #e0e0e0;
+	}
+	
+	.horizontal-process-builder li i,
+	.horizontal-process-builder li h1,
+	.horizontal-process-builder li img { 
+		border: 1px solid #e0e0e0;
+		background-color: #fff;
+		color: #111;
+	}
+	
+	.horizontal-process-builder li:hover i,
+	.horizontal-process-builder li:hover h1 {
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+/* ==========================================================================
+   =Pie charts
+   ========================================================================== */
+
+	.pie-chart {
+		background-color: #ff3500;
+	}
+	
+	.pie-chart i, 
+	.pie-chart .pie-chart-custom-text, 
+	.pie-chart .pie-chart-percent {
+		color: #fff;
+	}
+	
+	.pie-chart:hover { background-color: #313947; }
+
+/* ==========================================================================
+   =Pricing Tables
+   ========================================================================== */
+
+	.pricing-table {
+		background-color: #f1f1f1;
+	}
+	
+	.pricing-table-header h4:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.pricing-table h1 { 
+		background-color: #f9f9f9;
+	}
+	
+	.pricing-table-offer ul li { 
+		border-top: 1px solid #fff; 
+	}
+	
+	.pricing-table:hover { 
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	.pricing-table:hover h1 { 
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.pricing-table:hover .pricing-table-header h4, 
+	.pricing-table:hover .pricing-table-header h6 { color: #fff; }
+	
+	.pricing-table.alt { 
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.pricing-table.alt h1 { 
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	.pricing-table.alt .btn-white {
+		border-color: #fff;
+		color: #fff;
+	}
+	
+	.pricing-table.alt .pricing-table-header h4, 
+	.pricing-table.alt .pricing-table-header h6 { color: #fff; }
+	
+	.pricing-table.alt .pricing-table-header h4:after { border-top-color: #313947; }
+	
+	.pricing-table.alt:hover { background-color: #313947; }
+	.pricing-table.alt:hover h1 { background-color: #ff3500; }
+	.pricing-table.alt .pricing-table-header h4:after { border-top-color: #313947; }
+	.pricing-table.alt:hover .pricing-table-header h4:after { border-top-color: #ff3500; }
+
+/* ==========================================================================
+   =Progress Bar
+   ========================================================================== */
+	
+	.progress-bar-description span {
+		color: #fff;
+	}
+	
+	.progress-bar {
+		background-color: #e0e0e0;
+	}
+	
+	.progress-bar .progress-bar-outer {
+		background-color: #ff3500;
+	}
+
+/* ==========================================================================
+   =Social Media
+   ========================================================================== */
+
+	a.social-icon {
+		border: 1px solid #ff3500;
+	}
+	
+	a.social-icon:hover {
+		color: #fff;
+	}
+	
+	a.facebook-icon:hover { background-color: #0e59a0 !important; }
+	a.twitter-icon:hover { background-color: #0ea4ff !important; }
+	a.dribble-icon:hover { background-color: #ea73a0 !important; }
+	a.pinterest-icon:hover { background-color: #d73532 !important; }
+	a.googleplus-icon:hover { background-color: #282927 !important; }
+	a.tumblr-icon:hover { background-color: #586980 !important; }
+	a.instagram-icon:hover { background-color: #82685a !important; }
+	a.rss-icon:hover { background-color: #f79638 !important; }
+	a.linkedin-icon:hover { background-color: #018faf !important; }
+	a.skype-icon:hover { background-color: #00b0f6 !important; }
+	a.flickr-icon:hover { background-color: #0061db !important; }
+	a.vimeo-icon:hover { background-color: #63879c !important; }
+	a.github-icon:hover { background-color: #3b3b3b !important; }
+	a.youtube-icon:hover { background-color: #cc181e !important; }
+	a.windows-icon:hover { background-color: #6dc2e9 !important; }
+	a.dropbox-icon:hover { background-color: #007ee5 !important; }
+	a.xing-icon:hover { background-color: #026566 !important; }	
+	a.adn-icon:hover { background-color: #1ea076 !important; }
+	a.android-icon:hover { background-color: #98cb02 !important; }
+	a.apple-icon:hover { background-color: #000000 !important; }
+	a.behance-icon:hover { background-color: #2d9ad2 !important; }
+	a.bitbucket-icon:hover { background-color: #214f81 !important; }
+	a.bitcoin-icon:hover { background-color: #f7931b !important; }
+	a.codepan-icon:hover { background-color: #000000 !important; }
+	a.css3-icon:hover { background-color: #3289ce !important; }
+	a.delicious-icon:hover { background-color: #3399fe !important; }
+	a.deviantart-icon:hover { background-color: #c8da30 !important; }
+	a.digg-icon:hover { background-color: #0080c2 !important; }
+	a.drupal-icon:hover { background-color: #0077b9 !important; }
+	a.empire-icon:hover { background-color: #000000 !important; }
+	a.foursquare-icon:hover { background-color: #daecb0 !important; }
+	a.git-icon:hover { background-color: #f34f29 !important; }
+	a.gitti-icon:hover { background-color: #634c3e !important; }
+	a.hacker-news-icon:hover { background-color: #f18642 !important; }
+	a.html5-icon:hover { background-color: #e54c1f !important; }
+	a.joomla-icon:hover { background-color: #016fb9 !important; }
+	a.jsfiddle-icon:hover { background-color: #4679a4 !important; }
+	a.linux-icon:hover { background-color: #fece0e !important; }
+	a.maxcdn-icon:hover { background-color: #f36f20 !important; }
+	a.openid-icon:hover { background-color: #fe6101 !important; }
+	a.pagelines-icon:hover { background-color: #3783e3 !important; }
+	a.pied-piper-icon:hover { background-color: #0c7b48 !important; }
+	a.qq-icon:hover { background-color: #23286c !important; }
+	a.rebel-icon:hover { background-color: #000000 !important; }
+	a.reddit-icon:hover { background-color: #cee3f8 !important; }
+	a.renren-icon:hover { background-color: #0d81e4 !important; }
+	a.share-icon:hover { background-color: #252525 !important; }
+	a.slack-icon:hover { background-color: #453744 !important; }
+	a.soundcloud-icon:hover { background-color: #fe4e00 !important; }
+	a.spotify-icon:hover { background-color: #80bb41 !important; }
+	a.stack-exchange-icon:hover { background-color: #265a93 !important; }
+	a.stackoverflow-icon:hover { background-color: #fea501 !important; }
+	a.steam-icon:hover { background-color: #191919 !important; }
+	a.stumbleupon-icon:hover { background-color: #f04f23 !important; }
+	a.tencent-weibo-icon:hover { background-color: #0063a7 !important; }
+	a.trello-icon:hover { background-color: #226784 !important; }
+	a.vine-icon:hover { background-color: #00b081 !important; }
+	a.vk-icon:hover { background-color: #50769d !important; }
+	a.wechat-icon:hover { background-color: #a4dc31 !important; }
+	a.weibo-icon:hover { background-color: #d82828 !important; }
+	a.wordpress-icon:hover { background-color: #454442 !important; }
+	a.yahoo-icon:hover { background-color: #4b04a8 !important; }
+
+/* ==========================================================================
+   =Styled Tables
+   ========================================================================== */
+
+	.table-bordered { 
+		border: 1px solid #e0e0e0;  		
+	}
+	
+	.table-bordered th, 
+	.table-bordered td { border-left: 1px solid #e0e0e0; }
+	
+	.table-striped tbody tr:nth-child(odd) td,
+	.table-striped tbody tr:nth-child(odd) th { background-color: #f3f3f3; }	
+
+	@media (max-width: 480px) {
+		
+		tr { border-top: 1px solid #bbb; }
+	  
+	}
+
+/* ==========================================================================
+   =Tabs
+   ========================================================================== */
+
+/* =Horizontal tabs
+   ========================================================================== */
+	
+	.tabs-container .tabs-menu li a { 
+		border-top: 3px solid #fff;
+		border-right: 1px solid #fff;
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	.tabs-container .tabs-menu li a:hover,
+	.tabs-container .tabs-menu li.active a {
+		border-top-color: #313947;
+		background-color: #ff3500;
+	}
+	
+	.tabs-container .tab-content { 
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.tabs-container .tab-content h1,
+	.tabs-container .tab-content h2,
+	.tabs-container .tab-content h3,
+	.tabs-container .tab-content h4,
+	.tabs-container .tab-content h5,
+	.tabs-container .tab-content h6 { color: #fff; }
+	
+/* =Vertical tabs
+   ========================================================================== */
+	
+	.vertical-tabs-container .tabs-menu li a { 
+		border: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.vertical-tabs-container .tabs-menu li:last-child a { border-bottom: 1px solid #e0e0e0; }
+	
+	.vertical-tabs-container .tabs-menu li.active a,
+	.vertical-tabs-container .tabs-menu li a:hover {
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	@media (max-width: 767px) {
+		
+		.tabs-container .tabs-menu li.active a {  
+			border-bottom-color: #bbb;
+		}		
+	  
+	}
+	
+/* ==========================================================================
+   =Testimonials
+   ========================================================================== */
+	
+	.testimonial > h4:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.testimonial-2 blockquote {
+		border: 1px solid #ff3500;
+	}
+	
+	.testimonial-2 blockquote:before {
+		border-left: 8px solid transparent; 
+		border-right: 8px solid transparent; 
+		border-top: 10px solid #ff3500;
+	}
+	
+	.testimonial-2 blockquote:after {
+		border-left: 7px solid transparent; 
+		border-right: 7px solid transparent; 
+		border-top: 8px solid #fff;
+	} 
+	
+	.testimonial-2 > h5:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.testimonial-3 > h4:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+/* ==========================================================================
+   =Team Member
+   ========================================================================== */
+
+	.team-member {
+		border: 1px solid #e0e0e0;
+	}
+	
+	.team-member-overlay {
+		background-color: rgba(255, 53, 0, 0.5);
+	}
+	
+	.team-member h4:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.team-member:hover { background-color: #313947; }
+	
+	.team-member:hover h4,
+	.team-member:hover h6 { color: #fff; }
+	
+	.team-member .social-media a {
+		border-color: #fff;
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+/* ==========================================================================
+   =Timeline
+   ========================================================================== */	
+	
+	.left-side,
+	.right-side {
+		background-color: #f1f1f1;
+	}
+	
+	.left-side:before,
+	.right-side:before {
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+	}
+	
+	.left-side:before {
+		border-left: 10px solid #f1f1f1;
+	}
+	
+	.right-side:before {
+		border-right: 10px solid #f1f1f1;
+	}
+	
+	.vertical-timeline li:nth-child(odd) .right-side,
+	.vertical-timeline li:nth-child(even) .left-side,
+	.vertical-timeline li:hover:nth-child(odd) .right-side,
+	.vertical-timeline li:hover:nth-child(even) .left-side { background-color: transparent; }
+	
+	.vertical-timeline li:hover .left-side,
+	.vertical-timeline li:hover .right-side { 
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.vertical-timeline li:hover .left-side h4,
+	.vertical-timeline li:hover .right-side h4 { color: #fff; }
+	
+	.vertical-timeline li:hover .left-side:before { border-left-color: #ff3500; }
+	.vertical-timeline li:hover .right-side:before { border-right-color: #ff3500; }
+	
+	.separator:before {
+		border-left: 1px solid #e0e0e0;
+	}
+	
+	.separator span {
+		background-color: #ff3500;
+	}
+	
+	.separator span i {
+		color: #fff;
+	}
+	
+	.vertical-timeline li:hover .separator span { background-color: #313947; }
+
+/* ==========================================================================
+   =Personal info
+   ========================================================================== */
+	
+	.personal-info li {
+		border-bottom: 1px solid #e0e0e0;
+	}
+	
+/* ==========================================================================
+   =Portfolio Item
+   ========================================================================== */
+	
+	.portfolio-item { 
+		border: 1px solid #e0e0e0;
+	}
+	
+	.portfolio-item-overlay {
+		background-color: rgba(255, 53, 0, 0.5);
+	}	
+	
+	.portfolio-item-overlay-actions .portfolio-item-zoom,
+	.portfolio-item-overlay-actions .portfolio-item-link {
+		border: 1px solid #fff;
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.portfolio-item-overlay-actions .portfolio-item-zoom i,
+	.portfolio-item-overlay-actions .portfolio-item-link i {
+		color: #fff; 
+	}
+	
+	.portfolio-item-overlay-actions .portfolio-item-zoom:hover,
+	.portfolio-item-overlay-actions .portfolio-item-link:hover { background-color: #313947; }
+	
+	.portfolio-item-description {
+		background-color: #fff;
+	}
+	
+	.portfolio-item-description h6:before {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.portfolio-item:hover .portfolio-item-description { background-color: #313947; }
+	
+	.portfolio-item:hover .portfolio-item-description h4,
+	.portfolio-item:hover .portfolio-item-description h5,
+	.portfolio-item:hover .portfolio-item-description h6 { color: #fff; } 
+	
+/* ==========================================================================
+   =Portfolio Filter
+   ========================================================================== */
+	
+	.portfolio-filter ul li a {
+		border: 1px solid #e0e0e0;
+		color: #6d6d6d; 
+	}
+	
+	.portfolio-filter ul li a:hover,
+	.portfolio-filter ul li a.active {
+		background-color: #ff3500;
+		color: #fff; 
+	}	
+
+/* ==========================================================================
+   =Portfolio Pagination
+   ========================================================================== */
+
+	.pagination a { 
+		border: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.pagination li a:hover,
+	.pagination li.current a { 
+		color: #fff; 
+		background-color: #ff3500; 
+	}
+   
+/* ==========================================================================
+   =Contact form
+   ========================================================================== */
+	
+	label.validation-error { color: #d50f25; }
+	
+	input.validation-error,
+	textarea.validation-error,
+	select.validation-error { border: 1px solid #e0e0e0; }
+	         
+/* ==========================================================================
+   =Blog
+   ========================================================================== */
+
+	.blog-post {
+		padding: 0 30px 10px 30px;
+		border: 1px solid #e0e0e0;
+	}
+	
+	.blog-post-title:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.blog-post-title a { color: #6d6d6d; }
+	
+	.blog-post-info {
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.blog-post:hover {
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	.blog-post:hover a { color: #fff; }
+	
+	.blog-post-slider .blog-post:hover {
+		background-color: transparent;
+		color: #6d6d6d;
+	}
+	
+	.blog-post-slider .blog-post:hover a { color: #6d6d6d; }
+	.blog-post-slider .blog-post:hover .btn { color: #fff; }
+	
+	.blog-post.alt:hover {
+		background-color: transparent;
+		color: #6d6d6d;
+	}
+	
+	.blog-post.alt:hover a { color: #6d6d6d; }
+	.blog-post.alt:hover .btn { color: #fff; }
+	
+	.blog-post.alt .blog-post-title h4:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.blog-post blockquote {
+		background-color: #f7f7f7;
+	}
+	
+	.blog-post blockquote:before {
+		color: #ff3500;
+	}
+
+/* ==========================================================================
+   =Fullwidth Section
+   ========================================================================== */
+	 
+   .fullwidth-section {
+		color: #fff;
+		background-color: #245dc1;		
+	}
+   
+   	.fullwidth-section-overlay {
+		background-color: rgba(0, 33, 56, 0.8);	
+	}
+	
+	.fullwidth-section,
+	.fullwidth-section a,
+	.fullwidth-section h1,
+	.fullwidth-section h2,
+	.fullwidth-section h3,
+	.fullwidth-section h4,
+	.fullwidth-section h5,
+	.fullwidth-section h6,
+	.fullwidth-section .btn-white,
+	.fullwidth-section .btn-white.alt,
+	.fullwidth-section a.toggle-item,
+	.fullwidth-section a.accordion-item,
+	.fullwidth-section ul.check li:before,
+	.fullwidth-section ul.square-check li:before,
+	.fullwidth-section .icon-box-3:hover > span i,
+	.fullwidth-section .milestone .milestone-content,
+	.fullwidth-section .vertical-tabs-container .tabs-menu li a { color: #fff; }
+	
+	.fullwidth-section ul.square li:before,
+	.fullwidth-section ul.fill-circle li:before { background-color: #fff; }
+	
+	.fullwidth-section .icon-box-3 > span i { color: #191919; }
+	
+	.fullwidth-section .btn-white.alt { border-color: #fff; }
+	
+	.fullwidth-section .pie-chart {
+		margin-bottom: 20px;
+		background-color: transparent; 
+	}
+	
+	.fullwidth-section .pricing-table { background-color: #ff3500 }
+	.fullwidth-section .pricing-table h1 { background-color: #313947; }
+	.fullwidth-section .pricing-table-header h4:after { border-top-color: #313947; }
+	
+	.fullwidth-section .pricing-table:hover { background-color: #313947; }
+	.fullwidth-section .pricing-table:hover h1 { background-color: #ff3500; }
+	.fullwidth-section .pricing-table .pricing-table-header h4:after { border-top-color: #313947; }
+	.fullwidth-section .pricing-table:hover .pricing-table-header h4:after { border-top-color: #ff3500; }
+	
+	.fullwidth-section .tabs-container .tabs-menu li a { border-top: none; }
+	
+	
+	/* Fullwidth section backgrounds */
+	
+	#portfolio {
+		background-color: #f7f7f7;
+	}
+	
+	#features {
+		background-color: #f7f7f7;
+	}
+	
+	#services {
+		background-color: #f7f7f7;
+	}
+	
+	#subscribe {
+		background-color: #f7f7f7;
+	}
+	
+	#bg-1 { 
+		background: url(../../../_content/backgrounds/1920x1600.jpg) no-repeat center center;
+	}
+	
+	#bg-2 {
+		background-image: url(../../../_content/backgrounds/1920x1200-1.jpg);
+	}
+	
+	#bg-3 {
+		background-image: url(../../../_content/backgrounds/1920x1200-2.jpg);
+	}
+	
+	#bg-4 {
+		background-image: url(../../../_content/backgrounds/1920x800-1.jpg);
+	}
+	
+	#bg-5 {
+		background-image: url(../../../_content/backgrounds/1920x1000-1.jpg);
+		color: #6d6d6d;
+	}
+	
+	#bg-5.fullwidth-section h1,
+	#bg-5.fullwidth-section h2,
+	#bg-5.fullwidth-section h3,
+	#bg-5.fullwidth-section h4,
+	#bg-5.fullwidth-section h5,
+	#bg-5.fullwidth-section h6 { color: #313947; }
+	
+	#bg-6 {
+		background-image: url(../../../_content/backgrounds/1920x1200-3.jpg);
+	}
+	
+	#bg-7 {
+		background: #f7f7f7 url(../../../_content/backgrounds/1920x320.png) no-repeat bottom center;
+		color: #6d6d6d;
+	}
+	
+	#bg-7.fullwidth-section a,
+	#bg-7.fullwidth-section h1,
+	#bg-7.fullwidth-section h2,
+	#bg-7.fullwidth-section h3,
+	#bg-7.fullwidth-section h4,
+	#bg-7.fullwidth-section h5,
+	#bg-7.fullwidth-section h6 { color: #313947; }
+	
+	#bg-8 {
+		background-image: url(../../../_content/backgrounds/1715x850.jpg);
+	}
+	
+	#bg-9 {
+		background-image: url(../../../_content/backgrounds/1920x800-2.jpg);
+	}
+	
+	#bg-10 {
+		background-image: url(../../../_content/backgrounds/1920x850.jpg);
+	}
+	
+	#bg-11 {
+		background-image: url(../../../_content/backgrounds/1920x800-2.jpg);
+	}
+	
+	#bg-12 {
+		background-image: url(../../../_content/backgrounds/1920x1200-4.jpg);
+	}
+	
+	#bg-13 {
+		background-image: url(../../../_content/backgrounds/1920x1000-2.jpg);
+	}
+	
+	#bg-14 {
+		background-image: url(../../../_content/backgrounds/1920x2000.jpg);
+	}
+	
+	#bg-15 {
+		background-image: url(../../../_content/backgrounds/1920x1000-3.jpg);
+	}
+	
+	#bg-16 {
+		background-image: url(../../../_content/backgrounds/1920x1200-5.jpg);
+	}
+	
+/* ==========================================================================
+   =WordPress Default Classes
+   ========================================================================== */
+	
+	.wp-caption {
+		border: 1px solid #e0e0e0;
+		background: #fff;
+	}
+	
+/* ==========================================================================
+   =WordPress Widgets
+   ========================================================================== */
+	
+/* =Widgets default
+   ========================================================================== */
+	
+	.widget-title:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+/* =Search Widget
+   ========================================================================== */
+	
+	#searchsubmit {
+		background: url(../../images/bg-search.png) no-repeat center center;
+	}
+
+/* =Recent Entries Widget
+   ========================================================================== */
+	
+	.widget_recent_entries ul li > a {
+		color: #313947;
+	}
+	
+	.widget_recent_entries ul li .post-date a { color: #6d6d6d; }
+	
+/* =Pages Widget
+   ========================================================================== */
+	
+	.widget_pages li a {
+		border-bottom: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.widget_pages li a:hover {
+		border-bottom-color: #ff3500;
+		color: #313947;
+	}	
+	
+/* =Archive Widget
+   ========================================================================== */ 
+	
+	.widget_archive li a {
+		border-bottom: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.widget_archive li a:hover {
+		border-bottom-color: #ff3500;
+		color: #313947;
+	}	
+	
+/* =Categories Widget
+   ========================================================================== */
+	
+	.widget_categories li a {
+		border-bottom: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.widget_categories li a:hover {
+		border-bottom-color: #ff3500;
+		color: #313947;
+	}
+	
+/* =Meta Widget
+   ========================================================================== */
+	
+	.widget_meta li a {
+		border-bottom: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.widget_meta li a:hover {
+		border-bottom-color: #ff3500;
+		color: #313947;
+	}	
+	
+/* =Tag Cloud Widget
+   ========================================================================== */
+	
+	.widget_tag_cloud a {
+		border: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.widget_tag_cloud a:hover {
+		border-color: #ff3500;
+		color: #ff3500;
+		text-decoration: none;
+	}
+	
+/* =Nav Menu Widget
+   ========================================================================== */
+	
+	.widget_nav_menu li a {
+		border-bottom: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.widget_nav_menu li a:hover {
+		border-bottom-color: #ff3500;
+		color: #313947;
+	}	
+	
+/* ==========================================================================
+   =WordPress Custom Widgets
+   ========================================================================== */
+   
+/* =EWF Contact Info widget
+   ========================================================================== */	
+	
+	.ewf_widget_contact_info ul li span {
+		border: 1px solid #ff3500;
+	}
+	
+	.ewf_widget_contact_info ul li a { color: #6d6d6d;  }
+	
+/* =EWF Newsletter subscribe widget
+   ========================================================================== */
+	
+	#newsletter-subscribe-form input[type="submit"]:hover { background-color: #313947; }
+
+/* =EWF Latest posts widget
+   ========================================================================== */
+	
+	.ewf_widget_latest_posts ul li .title {
+		color: #313947;
+	}	
+	
+	.ewf_widget_latest_posts ul li .title:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+/* =EWF Navigation widget
+   ========================================================================== */
+	
+	.ewf_widget_navigation li a {
+		border-bottom: 1px solid #e0e0e0;
+		color: #6d6d6d;
+	}
+	
+	.ewf_widget_navigation li a:hover {
+		border-bottom-color: #ff3500;
+		color: #313947;
+	}	
+	
+	.fullwidth-section .ewf_widget_navigation li a {
+		border: 1px solid transparent;
+		color: #fff;
+	}
+	
+	.fullwidth-section .ewf_widget_navigation li a:hover { border-color: #fff; }	
+
+/* ==========================================================================
+   =WordPress Comments
+   ========================================================================== */
+	
+	.comments-title:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.commentlist .reply a {
+		border-bottom: 1px solid #9d2000;
+		background-color: #ff3500;
+		color: #fff;
+	}
+	
+	.commentlist .reply a:hover { 
+		border-bottom-color: #20252f;
+		background-color: #313947;
+	}
+	
+	.commentlist .vcard cite.fn a.url {
+		color: #313947;
+	}
+	
+	.commentlist .vcard cite.fn a.url:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+	.commentlist .comment-meta a {
+		color: #6d6d6d;
+	}
+	
+	.commentlist li {
+		border-top: 1px solid #e0e0e0; 
+	}
+	
+/* ==========================================================================
+   =WordPress Comment Form
+   ========================================================================== */	
+	
+	.section-heading:after {
+		border-top: 1px solid #ff3500;
+	}
+	
+/* ==========================================================================
+   =Wrap
+   ========================================================================== */
+
+	#wrap {
+		background-color: #fff;
+	}
+	
+	@media (max-width: 767px) {
+
+		#wrap { border-top: 10px solid #313947; }
+
+	}
+
+/* ==========================================================================
+	=Header Top
+	========================================================================== */
+   
+	#header-top {
+		background-color: #313947;
+		color: #fff;
+	}
+   
+   	#header-top a, 
+	#header-top h1,
+	#header-top h2,
+	#header-top h3,
+	#header-top h4,
+	#header-top h5,
+	#header-top h6 { color: #fff; }
+	
+/* ==========================================================================
+   =Menu 
+   ========================================================================== */
+
+/* =Menu Skin
+   ========================================================================== */
+	
+	.sf-menu a {
+		color: #888; 
+	}
+	
+	.sf-menu > li > a,
+	.sf-menu > li.dropdown > a {
+		color: #888;
+	}
+	
+	.sf-menu li.sfHover > a {
+		color: #ff3500;	
+	}
+	
+	.sf-menu > li.current > a,
+	.sf-menu > li.current.dropdown > a {
+		border-top-color: #ff3500;
+		background-color: #f7f7f7;
+	}
+
+/* =DropDown
+   ========================================================================== */
+	
+	.sf-menu li.dropdown ul {
+		border: 1px solid rgba(0, 0, 0, 0.1);	
+		background-color: rgba(49, 57, 71, 0.9);			
+	}
+	
+	.sf-menu li.dropdown ul li a {
+		color: #fff; 
+	}
+	
+	.sf-menu li.dropdown ul li a:hover { color: #ff3500; } 
+
+	.sf-menu > li.dropdown > ul { border-top: 3px solid #ff3500; }	
+		
+/* =Mega Menu Section
+   ========================================================================== */
+	
+	.sf-mega {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-top: 3px solid #ff3500;	
+		background-color: rgba(49, 57, 71, 0.9);
+	}
+	
+	.sf-mega a { color: #fff; }
+
+	.sf-mega-section {
+		color: #fff;
+	}
+	
+	.sf-mega-section ul li a:hover { color: #ff3500; }
+	
+/* =Menu Arrows
+   ========================================================================== */
+	
+	.sf-arrows .sf-with-ul:after {
+		border: 5px solid transparent;
+		border-top-color: #fff;
+	}
+		
+	.sf-arrows > li > .sf-with-ul:focus:after,
+	.sf-arrows > li:hover > .sf-with-ul:after,
+	.sf-arrows > .sfHover > .sf-with-ul:after { border-top-color: #ff3500; }
+		
+	.sf-arrows ul .sf-with-ul:after {
+		border-left-color: #999;
+	}
+	
+	.sf-arrows ul li > .sf-with-ul:focus:after,
+	.sf-arrows ul li:hover > .sf-with-ul:after,
+	.sf-arrows ul .sfHover > .sf-with-ul:after { border-left-color: #ff3500; }
+	
+/* ==========================================================================
+   =Mobile Menu 
+   ========================================================================== */
+			
+	#mobile-menu {
+		border-bottom: 1px solid #e0e0e0;
+		background-color: rgba(49, 57, 71, 0.7);
+	}
+	
+	#mobile-menu .sf-mega {
+		background-color: transparent;
+	}
+
+	#mobile-menu li a {
+		border-top: 1px solid #e0e0e0;
+		color: #fff;
+	}
+	
+	#mobile-menu .mobile-menu-submenu-arrow {
+		border-left: 1px solid #e0e0e0;
+		color: #fff;
+	}
+	
+	#mobile-menu .mobile-menu-submenu-arrow:hover { background-color: #313947; }		
+		
+/* ==========================================================================
+   =Custom search form 
+   ========================================================================== */
+	
+	#custom-search-button { 
+		background: url(../../images/bg-search.png) no-repeat center center;
+		border: 1px solid #bebebe;
+	}
+
+	#custom-search-form:before {
+		border-left: 7px solid transparent; 
+		border-right: 7px solid transparent; 
+		border-bottom: 10px solid #e0e0e0; 
+	}
+	
+	#custom-search-form:after {
+		border-left: 7px solid transparent; 
+		border-right: 7px solid transparent; 
+		border-bottom: 10px solid #fff; 
+	}
+	
+	#custom-search-form #s {	
+		background-color: #fff; 
+	}
+	
+	#custom-search-form #s:focus { border-color: #e0e0e0; }
+
+/* ==========================================================================
+   =Sticky Header
+   ========================================================================== */
+
+	@media (min-width: 1025px) {
+		
+		#header.stuck {
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+			background-color: #fff;
+		}
+	
+		
+	}
+
+/* ==========================================================================
+   =Page Header
+   ========================================================================== */
+	
+	#page-header {
+		color: #fff;
+	}
+	
+	#page-header h3 {
+		color: #fff;
+	}
+	
+	#page-header-overlay { 
+		background-color: rgba(0, 33, 56, 0.75) ;
+	}
+	
+/* ==========================================================================
+   =Footer Top
+   ========================================================================== */
+
+	#footer-top { background-color: #f9f9f9; }
+   
+/* ==========================================================================
+   =Footer
+   ========================================================================== */		
+	
+	#footer { 
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	#footer a, 
+	#footer h1,
+	#footer h2,
+	#footer h3,
+	#footer h4,
+	#footer h5,
+	#footer h6 { color: #fff; }
+	
+/* ==========================================================================
+   =Footer Bottom
+   ========================================================================== */	
+  
+	#footer-bottom { 	
+		background-color: #0d131b;
+		color: #fff;	
+	}
+	
+	#footer-bottom a, 
+	#footer-bottom h1,
+	#footer-bottom h2,
+	#footer-bottom h3,
+	#footer-bottom h4,
+	#footer-bottom h5,
+	#footer-bottom h6 { color: #fff; }
+	
+/* ==========================================================================
+   =Back to top
+   ========================================================================== */
+
+	#back-to-top {
+		background-color: #111;
+		color: #fafafa;
+	}
+	
+	#back-to-top:hover { background-color: rgba(0, 0, 0, 0.7); }
+	#back-to-top:hover i { color: #fff; }
+
+/* ==========================================================================
+   =Loader
+   ========================================================================== */
+
+	.bx-wrapper .bx-loading {
+		background: #fff url(../../js/bxslider/images/bx_loader.gif) no-repeat center center;
+	}
+
+/* ==========================================================================
+   =Pager
+   ========================================================================== */
+
+	.bx-wrapper .bx-pager {
+		color: #111;
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		background: #ff3500;	
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager a:hover,
+	.bx-wrapper .bx-pager.bx-default-pager a.active { background: #313947; }
+	
+	.fullwidth-section .bx-wrapper .bx-pager.bx-default-pager a:hover,
+	.fullwidth-section .bx-wrapper .bx-pager.bx-default-pager a.active { background: #fff; }
+
+/* ==========================================================================
+   =Directional Controls (Next / Prev)
+   ========================================================================== */
+
+	.bx-wrapper .bx-prev {
+		background: url(../../images/left-2.png) no-repeat center center;
+	}
+	
+	.bx-wrapper .bx-next {
+		background: url(../../images/right-2.png) no-repeat center center;
+	}
+	
+	.bx-wrapper .bx-controls-direction a {
+		background-color: #ff3500;
+	}
+	
+	.bx-wrapper .bx-controls-direction a:hover { background-color: #313947; }
+
+/* ==========================================================================
+   =Auto Controls (Start / Stop)
+   ========================================================================== */
+	
+	.bx-wrapper .bx-controls-auto .bx-start {
+		background: url(../../js/bxslider/images/controls.png) -86px -11px no-repeat;
+	}
+	
+	.bx-wrapper .bx-controls-auto .bx-stop {
+		background: url(../../js/bxslider/images/controls.png) -86px -44px no-repeat;
+	}
+
+/* ==========================================================================
+   =Image Captions
+   ========================================================================== */
+
+	.bx-wrapper .bx-caption {
+		background: rgba(80, 80, 80, 0.75);
+	}
+	
+	.bx-wrapper .bx-caption span {
+		color: #fff;
+	}
+
+/* ==========================================================================
+   =Rev Slider Pager
+   ========================================================================== */
+	   
+	.tp-bullets.simplebullets.round .bullet {
+		background: #ff3500;
+	}
+
+	.tp-bullets.simplebullets.round .bullet.selected { background: #313947;  }
+
+/* ==========================================================================
+   =Rev Slider Nav
+   ========================================================================== */
+
+	.tp-leftarrow.default { background: #313947 url(../../images/left.png) no-repeat center center; }
+	.tp-rightarrow.default { background: #313947 url(../../images/right.png) no-repeat center center; }
+	
+/* ==========================================================================
+   =Rev Slider Typography
+   ========================================================================== */
+	
+	.caption.title {
+		color: #fff;
+	}
+	
+	.caption.title-bg {
+		background-color: #313947;
+		color: #fff;
+	}
+	
+	.caption.title-2 {
+		color: #fff;
+	}
+	
+	.caption.title-2:after {
+		border-top: 2px solid #ff3500;
+	}
+	
+	.caption.subtitle {
+		border-left: 3px solid #fff;
+		color: #fff;
+	}
+   	
+	.caption.text {
+		color: #fff;
+	}
+	
+	.caption .btn,
+	.caption .btn:hover { color: #fff; }
