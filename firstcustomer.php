@@ -2,12 +2,25 @@
 	include_once "db_connect.php";
 	
 	session_start();
+	$client_id = $_SESSION['clientid'];
+	
 	if( !isset($_SESSION['email']) )
 	{
 		header("location:login.php");
 	}
+	/*else
+	{
+		$selectClient = "select * from tb_customer where client_id=".$client_id;
+		$resSelectClient = mysql_query($selectClient);
+		$recSelectClient = mysql_num_rows($resSelectClient);
+		if($recSelectClient != 0)
+		{
+			
+			header("location:customers.php");
+		}
+	}*/
 	
-	$client_id = $_SESSION['clientid'];
+	
 	$customers_added = 0;
 	
 	$selectCustomer = "select * from tb_customer where client_id='$client_id' ORDER BY customer_insertdate DESC";
@@ -33,9 +46,22 @@
 			{
 				$selectCusInfo = "select * from tb_customer where client_id='$client_id' and customer_email='$customer_email' ORDER BY customer_insertdate DESC";
 				$resSelectCusInfo = mysql_query($selectCusInfo);
+				$selectCusInfo2 = "select * from tb_customer where client_id='$client_id'";
+				$resSelectCusInfo2 = mysql_query($selectCusInfo2);
+				
+				
+				$selectClient2 = "select * from tb_client where client_id='$client_id'";
+				$resSelectClient2 = mysql_query($selectClient2);
+				$recSelectClient2 = mysql_fetch_array($resSelectClient2);
+				
+				//echo mysql_num_rows($resSelectCusInfo2);
 				if(mysql_num_rows($resSelectCusInfo)>0)
 				{
 					$error = 'You have already entered this customer.';
+				}
+				elseif(mysql_num_rows($resSelectCusInfo2) >= 10 && $recSelectClient2["client_type"] == 2)
+				{
+					$error = "You have reached your maximum limit. </br> You can add only 10 customer for trial version.";
 				}
 				else
 				{
@@ -52,13 +78,134 @@
 					
 					if($result)
 					{
-						header("location:sendsurvey.php");
+						header("Location: firstcustomer.php");
 						exit();
 					}
 				}
 			}
 		}
+		if(isset($_POST["Import"])){
+		
+		$filename=$_FILES["file"]["tmp_name"];	
+		if($_FILES["file"]["type"] == 'application/vnd.ms-excel')
+		{
+			
+		
+		$csv = array();
+ 
+		if($_FILES["file"]["size"] > 0)
+		{
+			$customer_status = 1;
+			$customer_isActive = 1;
+		  	$file = fopen($filename, "r");
+			$r=1;
+	        while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
+	         {
+				$csv[] = $getData;
+				$r++;
+			 }
+			 
+			 for($p=1; $p<=($r-2); $p++)
+			 {
+				 $countField = count($csv[0]);
+					
+					if($countField == 5 && $csv[0][0] == 'Firstname' && $csv[0][1] == 'Lastname' && $csv[0][2] == 'Email' && $csv[0][3] == 'Company' && $csv[0][4] == 'Group')
+					{
+					$customer_email = $csv[$p][2];
+					
+					$customer_email = stripslashes($customer_email);
+					$customer_email = mysql_real_escape_string($customer_email);
+					if(!filter_var($customer_email, FILTER_VALIDATE_EMAIL))
+					{
+						$error = "Please enter a valid email address of customers.";
+					}
+					
+					else
+					{
+						$selectCusInfo = "select * from tb_customer where client_id='$client_id' and customer_email='$customer_email'";
+						$resSelectCusInfo = mysql_query($selectCusInfo);
+						
+						$selectCusInfo3 = "select * from tb_customer where client_id='$client_id'";
+						$resSelectCusInfo3 = mysql_query($selectCusInfo3);
+						
+						$selectClient3 = "select * from tb_client where client_id='$client_id'";
+						$resSelectClient3 = mysql_query($selectClient3);
+						$recSelectClient3 = mysql_fetch_array($resSelectClient3);
+				
+						//echo mysql_num_rows($resSelectCusInfo3); 
+						if(mysql_num_rows($resSelectCusInfo)>0)
+						{
+							$error = 'You have already entered this customers with same email address.';
+						}
+						elseif(mysql_num_rows($resSelectCusInfo3) >= 10 && $recSelectClient3["client_type"] == 2)
+						{
+							$error = "You have reached your maximum limit. </br> You can add only 10 customer for trial version.";
+						}
+						else
+						{
+							$sql = "insert into tb_customer (client_id,customer_firstname,customer_lastname,customer_email,customer_status,customer_company,customer_group,customer_insertdate,customer_isActive) 
+									values 
+									('$client_id','".$csv[$p][0]."','".$csv[$p][1]."','".$csv[$p][2]."','$customer_status','".$csv[$p][3]."','".$csv[$p][4]."',NOW(),'$customer_isActive')";
+                 
+							$result = mysql_query($sql);
+				 
+							if(!isset($result))
+							{
+								echo "<script type=\"text/javascript\">
+									alert(\"Invalid File:Please Upload CSV File.\");
+									window.location = \"firstcustomer.php\"
+									</script>";		
+							}
+							else {
+								echo "<script type=\"text/javascript\">
+									alert(\"CSV File has been successfully Imported.\");
+									window.location = \"firstcustomer.php\"
+									</script>";
+							}
+						}
+					}
+					}
+					
+					else
+					{
+						$error = "<p>Please follow the format -<br>=>FirstName<br>=>LastName<br>=>Email<br>=>Company<br>=>Group</p>";
+					}
+			 }
+			
+	         fclose($file);	
+		}
+		}
+		
+		else
+		{
+			echo "<script type=\"text/javascript\">
+							alert(\"Invalid File:Please Upload CSV File.\");
+							window.location = \"firstcustomer.php\"
+						  </script>";
+		}
+		
+		}
+		if(isset($_POST["Export"])){
+		 
+			$result = mysql_query("SELECT * FROM tb_customer where client_id=".$client_id);
+			 
+			csvToExcelDownloadFromResult($result);
+		}
+		if(!empty($_POST['preview']))
+		{
+			if(!empty($_POST['cust']))
+			{
+				$_SESSION["cust_ids"] = $_POST['cust'];
+				
+				header("Location: sendsurvey.php");
+			}
+			else
+			{
+				$error = "Please select customer";
+			}
+		}
 	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -125,53 +272,8 @@
         </div>
     </noscript>
     <div id="wrap">
-		<div id="header-top">
-        <!-- /// HEADER-TOP  //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-            
-            
-        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        </div><!-- end #header-top -->
-        <div id="header" style="top:30px;">
-        <!-- /// HEADER ////////////////////////////////////////////////////// -->
-			<div class="row">
-				<div class="span3">
-					<!-- // Logo // -->
-					<a href="index.html" id="logo">
-                    	<img class="responsive-img" src="_layout/images/logo.png" alt="">
-                    </a>
-				</div><!-- end .span3 -->
-				<div class="span9">
-					<div style="float:right;">
-						<a href="">Your Settings</a> | 
-						<a href="logout.php">Logout</a>
-					</div>
-					<!-- // Mobile menu trigger // -->
-					<a href="#" id="mobile-menu-trigger">
-                    	<i class="fa fa-bars"></i>
-                    </a>
-                	<!-- // Menu // -->
-					<?php /*<ul class="sf-menu fixed" id="menu">
-						<li>
-                        	<a href="logout.php">Results</a>                              
-                        </li>
-						<li>
-                        	<a href="logout.php">Customers</a>                              
-                        </li>
-						<li>
-                        	<a href="logout.php">Heartbeats</a>                              
-                        </li>
-						<li>
-                        	<a href="logout.php">Report</a>                              
-                        </li>
-                        <li>
-                        	<a href="logout.php">Logout</a>                              
-                        </li>
-					</ul>*/ ?>
-				</div><!-- end .span9 -->
-			</div><!-- end .row -->            
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-		</div><!-- end #header -->		
-		<div id="content" style="margin-top:150px;">
+		<?php include "header.php"; ?>		
+		<div id="content" style="margin-top:0px;">
 		<!-- /// CONTENT  //////////////////////////////////////////////////////////////////////////////////////////////// -->
 			<div class="row">
 				<div id="formstatus">
@@ -190,7 +292,7 @@
 					}
 					?>
 				</div>
-				<div class="span12">
+				<div class="span12" style="margin-left:0px;">
                     <div class="tabs-container" id="tabs-container">
 				        <ul class="tabs-menu fixed">
                             <li id="tab-1">
@@ -251,8 +353,10 @@
                         </ul><!-- end .tabs-menu -->
                         <div class="tabs">
                             <div class="tab-content">
-                            	<h3 align="center">
+							<div style="float:left;width:465px;">
+                            	<h3 align="">
                                 	<strong>Add Your Customers</strong> <br>
+								</h3>
 									<?php
 									if($customers_added==0)
 									{
@@ -261,26 +365,41 @@
 									<?php
 									}
 									?>
-                                </h3>
-								<div class="span7">
-									<a href="#" class="btn" data-reveal-id="myModal" style="float:right;">Add Single Customer</a>
-									<!--<a href="#" class="btn" data-reveal-id="multipleCustomer" style="float:right;">Import Customers</a>-->
-								</div><br/>
-								
+                                
+							</div>
+								<div class="" style="float:left;">
+									<a href="#"  class="btn" data-reveal-id="myModal" >Add Customer</a>
+									<a href="#"  class="btn" data-reveal-id="multipleCustomer" >Import Customers</a>
+									 
+								</div>
+								<div style="float:left;">
+									<form class="form-horizontal" action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post" name="upload_excel" enctype="multipart/form-data">
+									<!--<a href="#" class="btn" data-reveal-id="exportCustomer" >Export Customers</a>-->
+									<button  type="submit" id="submit" name="Export" class="btn " data-loading-text="Loading...">Export Customers</button>
+									</form>
+								</div>
+								<div style="clear:both;"></div>
+								<form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post">
 								<div class="box-body">
 									<?php
 									if(mysql_num_rows($resSelectCustomer)>0)
 									{
 									?>
+									<div>
+										<input type="submit" id="preview" name="preview" class="btn " style="float:right;background-color:green;"  value="Preview Your Survey ->" />
+										<!--<a href="sendsurvey.php"  class="btn" style="float:right;background-color:green;" >Preview Your Heartbeat -></a>-->
+									</div>
+									
 									<table id="example1" class="table table-bordered table-striped">
 										<thead>
 											<tr>
+												<th><input type="checkbox" name="custall"  id="custall" value=""  style="-webkit-appearance:checkbox;float:left;"></th>
 												<th>Name</th>
 												<th>Status</th>
-												<th>View</th>
-												<th>Update</th>
+												
 												<th>Company</th>
 												<th>Group</th>
+												<th>Total Survey Sent</th>
 												<th>Last Responded</th>
 											</tr>
 										</thead>
@@ -288,14 +407,51 @@
 											<?php
 											while($rowSelectCustomer = mysql_fetch_array($resSelectCustomer))
 											{
+												$selectHeartbeat = "select * from tb_customerheartbeat where client_id='$client_id' and customer_id='".$rowSelectCustomer['id']."' order by id desc limit 1";
+												$resHeartbeat = mysql_query($selectHeartbeat);
+												$rowHeartbeat = mysql_fetch_array($resHeartbeat);
 											?>
 											<tr>
-												<td><?php echo $rowSelectCustomer['customer_firstname'].' '.$rowSelectCustomer['customer_lastname'];?></td>
-												<td><?php if($rowSelectCustomer['customer_status']==1) echo 'Active'; else echo 'Disabled'; ?> </td>
-												<td><a href="">-</a></td>
-												<td><a href="">Update</a></td>
+											<?php
+												if($rowSelectCustomer["customer_isActive"] == 1)
+												{
+											?>
+												<td><input type="checkbox" name="cust[]" value="<?php echo $rowSelectCustomer['id']; ?>"  style="-webkit-appearance:checkbox;float:left;"></td>
+												<?php
+												}
+												else
+												{
+													?>
+													<td></td>
+													<?php
+												}
+											?>
+												<td><?php echo ucfirst($rowSelectCustomer['customer_firstname']).' '.ucfirst($rowSelectCustomer['customer_lastname']);?></td>
+												<td>
+												<?php
+													if(mysql_num_rows($resHeartbeat) == 0) 
+														echo 'No Survey Sent';
+													
+													if($rowHeartbeat['status'] == 'heartbeatsent' || $rowHeartbeat['status'] == 'emailopened')
+													{
+														echo 'Waiting for response';
+													}
+													elseif($rowHeartbeat['status'] == 'responsereceived')
+													{
+														echo 'Response Received';
+													}
+												?> 
+												</td>
+												
 												<td><?php echo $rowSelectCustomer['customer_company']; ?></td>
 												<td><?php if('' == $rowSelectCustomer['customer_group']) echo '-'; else echo $rowSelectCustomer['customer_group']; ?></td>
+												<?php
+													$cus_id = $rowSelectCustomer['id'];
+													$selectTotal = "select count(customer_id) as Total from tb_customerheartbeat where customer_id= ".$cus_id;
+													$resSelectTotal = mysql_query($selectTotal);
+													$recSelectTotal = mysql_fetch_array($resSelectTotal);
+												?>
+												<td><?php echo $recSelectTotal['Total']; ?></td>
 												<td><?php if('' == $rowSelectCustomer['customer_lastresponded']) echo '-'; else echo $rowSelectCustomer['customer_lastresponded']; ?></td>
 											</tr>
 											<?php
@@ -307,6 +463,7 @@
 									}
 									?>
 								</div>
+							</form>
                             </div><!-- end .tab-content -->
                         </div><!-- end .tabs -->  
                     
@@ -316,37 +473,11 @@
             </div><!-- end .row -->
 		<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 		</div><!-- end #content -->
-        <div id="footer-bottom">
+        
         <!-- /// FOOTER-BOTTOM     ////////////////////////////////////////////////////////////////////////// -->	
-			<div class="row">
-				<div class="span6" id="footer-bottom-widget-area-1">
-					<div class="widget widget_text">
-                        <div class="textwidget">
-                            <p class="last">Integrity &copy; 2014 All rights reserved</p>
-                        </div><!-- edn .textwidget -->
-                    </div><!-- end .widget_text -->
-				</div><!-- end .span6 -->
-				<div class="span6" id="footer-bottom-widget-area-2">
-					<div class="widget ewf_widget_social_media"> 
-                        <div class="fixed">
-		                    <a href="#" class="googleplus-icon social-icon">
-								<i class="fa fa-google-plus"></i>
-							</a>
-                            <a href="#" class="pinterest-icon social-icon">
-								<i class="fa fa-pinterest"></i>
-							</a>
-                            <a href="#" class="facebook-icon social-icon">
-								<i class="fa fa-facebook"></i>
-							</a>
-                            <a href="#" class="twitter-icon social-icon">
-								<i class="fa fa-twitter"></i>
-							</a>
-                        </div>
-                    </div><!-- end .ewf_widget_social_media -->
-				</div><!-- end .span6 -->
-			</div><!-- end .row -->
+			<?php include "footer.php"; ?>
 		<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////// -->    
-		</div><!-- end #footer-bottom -->
+		
 	</div><!-- end #wrap -->
     
     <a id="back-to-top" href="#">
@@ -375,7 +506,7 @@
 						<input type="text" name="company" value="">
 					</div>
 					<div class="span3">
-						<label>Group</label>
+						<label>Group Name</label>
 						<input type="text" name="group" value="">
 					</div>
 				</div>
@@ -396,7 +527,29 @@
 			<strong>Add Multiple Customers</strong> <br>
 		</h5>
 		<div>
-			Please submit your file as a CSV in the following format.     
+			Please submit your file as a CSV in the following format.  
+			<table>
+				<tr>
+					<td>Firstname</td>
+					<td>Lastname</td>
+					<td>Email</td>
+					<td>Company</td>
+					<td>Group</td>
+				</tr>
+			</table>
+			
+                <form class="form-horizontal" action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post" name="upload_excel" enctype="multipart/form-data">
+                    
+                        <div class="">
+                            <label class="" for="">Select File</label>
+                            <div class="">
+                                <input type="file" name="file" id="file" class="">
+                            </div>
+                        </div>
+						<div class="">
+                                <button type="submit" id="submit" name="Import" class="btn " data-loading-text="Loading...">Import</button>
+                        </div>
+                </form
 		</div>
 		<a class="close-reveal-modal" href="customers.php">&#215;</a>		
 	</div>
@@ -482,9 +635,69 @@
 	<script type="text/javascript">
 		// Foundation.set_namespace = function() {};
 		$(document).foundation();
-		
+		$('#custall').click(function(event) 
+		{
+		if(this.checked) 
+		{
+				// Iterate each checkbox
+				$(':checkbox').each(function() {
+				this.checked = true;
+		});
+		}
+		else 
+		{
+			$(':checkbox').each(function() {
+			this.checked = false;
+		});
+		}
+		});
 	</script>
     
 
 </body>
 </html>
+
+<?php
+
+function csvToExcelDownloadFromResult($result, $showColumnHeaders = true, $asFilename = 'allcustomers.csv') {
+			
+			setDownloadAsHeader($asFilename);
+			return csvFileFromResult('php://output', $result, $showColumnHeaders);
+		}
+		function csvFileFromResult($filename, $result, $showColumnHeaders = true) {
+			$fp = fopen($filename, 'w');
+			$rc = csvFromResult($fp, $result, $showColumnHeaders);
+			fclose($fp);
+			return $rc;
+		}
+		function csvFromResult($stream, $result, $showColumnHeaders = true) {
+			if($showColumnHeaders) {
+			$columnHeaders = array();
+			$nfields = mysql_num_fields($result);
+			for($i = 0; $i < $nfields; $i++) {
+				$field = mysql_fetch_field($result, $i);
+				$columnHeaders[] = $field->name;
+			}
+			fputcsv($stream, $columnHeaders);
+			}
+	
+			$nrows = 0;
+			while($row = mysql_fetch_row($result)) {
+				fputcsv($stream, $row);
+				$nrows++;
+			}
+			
+			exit;
+			return $nrows;
+		}
+		
+
+		function setDownloadAsHeader($filename) {
+			if(headers_sent())
+			return false;
+
+			header('Content-disposition: attachment; filename=' . $filename);
+			return true;
+		}
+
+?>
